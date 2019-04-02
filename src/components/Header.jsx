@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Header extends Component {
   render() {
     return (
-      <header>
-        <h1>Hello World!</h1>
+      <header className="main-header">
+        <h3>Phone Directory</h3>
       </header>
     )
   }
