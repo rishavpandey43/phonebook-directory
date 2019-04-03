@@ -3,7 +3,6 @@ import { Button, Table } from 'react-bootstrap';
 
 class DisplayData extends Component {
   render() {
-    console.log(phoneBookList);
     let phoneBookList = this.props.phoneBookList.map((item, index) => {
       return (
         <tr key={index}>
@@ -17,7 +16,7 @@ class DisplayData extends Component {
     return (
       <div className="display-data">
         <Button variant="success">Add new phone number</Button>
-        <div className="num-list">
+        <div className="num-list mt-4">
           <Table borderless hover responsive className="w-100">
             <thead>
               <tr>

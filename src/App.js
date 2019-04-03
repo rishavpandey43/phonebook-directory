@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       phoneBookList: [{}, {}, {}],
-      displayData: true,
+      displayDirectory: false,
     }
   }
 
@@ -19,9 +19,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header></Header>
+        <Header displayDirectory={this.state.displayDirectory}></Header>
         <main className="main-div container">
-          {this.state.displayData === false ? <DisplayData phoneBookList={this.state.phoneBookList}/> : <AddData/>}
+          {this.state.displayDirectory === true ? <DisplayData phoneBookList={this.state.phoneBookList}/> : <AddData/>}
         </main>
       </div>
     );
