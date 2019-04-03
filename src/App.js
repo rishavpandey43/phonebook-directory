@@ -7,21 +7,47 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneBookList: [{}, {}, {}],
-      displayDirectory: false,
+      phoneBookList: [
+        {
+          name: "John Doe",
+          number: 9777777788,
+        },
+        {
+          name: "Jane Doe",
+          number: 9558877788,
+        },
+      ],
+      displayDataDiv: true,
+      AddDataDiv: false,
     }
   }
 
-  addNewNumber = () => {
+  addNewData = () => {
     console.log('Added');
+  }
+
+  editData = () => {
+
+  }
+
+  deleteData = () => {
+
+  }
+
+  openAddDataDiv = () => {
+    this.setState({displayDataDiv: false});
+  }
+
+  openDisplayDataDiv = () => {
+    this.setState({displayDataDiv: true});
   }
 
   render() {
     return (
       <div className="App">
-        <Header displayDirectory={this.state.displayDirectory}></Header>
+        <Header displayDataDiv={this.state.displayDataDiv}></Header>
         <main className="main-div container">
-          {this.state.displayDirectory === true ? <DisplayData phoneBookList={this.state.phoneBookList}/> : <AddData/>}
+          {this.state.displayDataDiv === true ? <DisplayData phoneBookList={this.state.phoneBookList} openAddDataDiv={this.openAddDataDiv}/> : <AddData openDisplayDataDiv={this.openDisplayDataDiv}/>}
         </main>
       </div>
     );

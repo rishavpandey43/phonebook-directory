@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonToolbar, Button, Form, Row, Col } from 'react-bootstrap';
+import { ButtonToolbar, Button, Form } from 'react-bootstrap';
 
 
 class AddData extends Component {
@@ -22,13 +22,25 @@ class AddData extends Component {
   }
 
   back = () => {
+    this.props.openDisplayDataDiv();
+    this.setState({newData: { name: "", number: null }});
+  }
+
+  cancelDetail = () => {
+    this.nameRef.current.value = "";
+    this.numRef.current.value = "";
+    this.setState({newData: { name: "", number: null }});
+  }
+
+  saveDetail = () => {
 
   }
+
   render() {
     return (
       <div className="add-data">
         <div className="edit-div mt-4 col-12 col-md-6">
-          <Button variant="light" className="mb-4" onClick={}>Back</Button>
+          <Button variant="light" className="mb-4" onClick={this.back}>Back</Button>
           <Form>
             <Form.Group controlId="formPlaintextEmail">
               <Form.Label sm="2">
@@ -49,8 +61,8 @@ class AddData extends Component {
               <label>Number:</label><span> {this.state.newData.number}</span>
             </div>
             <ButtonToolbar >
-              <Button variant="secondary" className="mr-2">Cancel</Button>
-              <Button variant="success" className="ml-2">Submit</Button>
+              <Button variant="secondary" className="mr-2" onClick={this.cancelDetail}>Cancel</Button>
+              <Button variant="success" className="ml-2" onClick={this.cancelDetail}>Save number</Button>
             </ButtonToolbar>
           </Form>
         </div>
