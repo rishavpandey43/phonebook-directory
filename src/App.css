@@ -17,3 +17,9 @@
 .num-list > li {
   list-style: none;
 }
+
+@media screen and (max-width: 420px) {
+  .delete-btn {
+    margin-top: .5rem!important;
+  }
+}

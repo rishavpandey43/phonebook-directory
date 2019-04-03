@@ -18,28 +18,21 @@ class App extends Component {
         },
       ],
       displayDataDiv: true,
-      AddDataDiv: false,
     }
   }
 
-  addNewData = () => {
-    console.log('Added');
+  deleteData = (i) => {
+    let tempData = JSON.parse(JSON.stringify(this.state.phoneBookList));
+    tempData.splice(i, 1);
+    this.setState({ phoneBookList: tempData});
   }
 
-  editData = () => {
-
+  saveData = (data) => {
+    this.setState({ phoneBookList: data});
   }
 
-  deleteData = () => {
-
-  }
-
-  openAddDataDiv = () => {
-    this.setState({displayDataDiv: false});
-  }
-
-  openDisplayDataDiv = () => {
-    this.setState({displayDataDiv: true});
+  openCloseAddDataDiv = () => {
+    this.setState({displayDataDiv: this.state.displayDataDiv === true ? false : true});
   }
 
   render() {
@@ -47,7 +40,7 @@ class App extends Component {
       <div className="App">
         <Header displayDataDiv={this.state.displayDataDiv}></Header>
         <main className="main-div container">
-          {this.state.displayDataDiv === true ? <DisplayData phoneBookList={this.state.phoneBookList} openAddDataDiv={this.openAddDataDiv}/> : <AddData openDisplayDataDiv={this.openDisplayDataDiv}/>}
+          {this.state.displayDataDiv === true ? <DisplayData phoneBookList={this.state.phoneBookList} openCloseAddDataDiv={this.openCloseAddDataDiv} saveData={this.saveData} deleteData={this.deleteData}/> : <AddData phoneBookList={this.state.phoneBookList} saveData={this.saveData} openCloseAddDataDiv={this.openCloseAddDataDiv}/>}
         </main>
       </div>
     );
