@@ -11,5 +11,9 @@
 }
 
 .main-div {
+  margin-top: 40px;
+}
 
+.num-list > li {
+  list-style: none;
 }

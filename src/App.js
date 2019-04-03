@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import "./App.css";
 import Header from "./components/Header";
-import { Button } from 'reactstrap';
-
+import AddData from "./components/AddData";
+import DisplayData from "./components/DisplayData";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phonebookList: [],
-      addData: true,
+      phoneBookList: [{}, {}, {}],
+      displayData: true,
     }
+  }
+
+  addNewNumber = () => {
+    console.log('Added');
   }
 
   render() {
@@ -17,7 +21,7 @@ class App extends Component {
       <div className="App">
         <Header></Header>
         <main className="main-div container">
-          <h1>Hello World</h1>
+          {this.state.displayData === false ? <DisplayData phoneBookList={this.state.phoneBookList}/> : <AddData/>}
         </main>
       </div>
     );
